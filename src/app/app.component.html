@@ -1,0 +1,35 @@
+<md-sidenav-layout>
+  <md-toolbar color="primary">
+    Angular 2 Firebase Example App
+    <span class="app-toolbar-filler"></span>
+    <button *ngIf="!loggedIn" (click)="login()" md-raised-button>Sign in</button>
+    <img
+      *ngIf="loggedIn"
+      (click)="logout()"
+      [src]="user.auth.photoURL"
+      md-tooltip="Logout"
+      alt="user.auth.displayName"
+      class="app-avatar">
+  </md-toolbar>
+</md-sidenav-layout>
+
+<div *ngIf="!loggedIn">
+  <h1>Please sign in to continue</h1>
+</div>
+
+<div *ngIf="loggedIn">
+  <h1>Welcome {{user.auth.displayName}}</h1>
+  <p>
+    This is just a test application you can add message below
+  </p>
+  <ul>
+    <li *ngFor="let item of items | async">
+      <input type="text" #updatetext [value]="item.text" />
+      <button (click)="updateItem(item.$key, updatetext.value)">Update</button>
+      <button (click)="deleteItem(item.$key)">Delete</button>
+    </li>
+  </ul>
+  <input type="text" #newitem />
+  <button (click)="addItem(newitem.value)">Add</button>
+  <button (click)="deleteEverything()">Delete All</button>
+</div>

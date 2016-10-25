@@ -1,0 +1,12 @@
+.app-toolbar-filler {
+  flex: 1 1 auto;
+}
+
+.app-avatar {
+  cursor: pointer;
+  border-radius: 50%;
+  height: 32px;
+  margin: 8px 0;
+  vertical-align: middle;;
+  width: 32px;
+}
