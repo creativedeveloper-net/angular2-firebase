@@ -3,33 +3,42 @@
     Angular 2 Firebase Example App
     <span class="app-toolbar-filler"></span>
     <button *ngIf="!loggedIn" (click)="login()" md-raised-button>Sign in</button>
-    <img
-      *ngIf="loggedIn"
-      (click)="logout()"
-      [src]="user.auth.photoURL"
-      md-tooltip="Logout"
-      alt="user.auth.displayName"
-      class="app-avatar">
+    <img *ngIf="loggedIn" (click)="logout()" [src]="user.auth.photoURL" md-tooltip="Logout" alt="user.auth.displayName" class="app-avatar">
   </md-toolbar>
 </md-sidenav-layout>
 
-<div *ngIf="!loggedIn">
-  <h1>Please sign in to continue</h1>
+<div class="app-content">
+  <h1>Please note that the project currently is in early stage</h1>
+
+  <h2>List of chat rooms</h2>
+  <p *ngIf="!loggedIn">
+    To see the content please sign in
+  </p>
+  <md-list class="app-list">
+    <md-list-item *ngFor="let chatRoom of chatRooms | async">
+      <h3 md-line>{{chatRoom.name}}</h3>
+      <p md-line class="demo-secondary-text">{{chatRoom.description}}</p>
+    </md-list-item>
+  </md-list>
 </div>
 
-<div *ngIf="loggedIn">
-  <h1>Welcome {{user.auth.displayName}}</h1>
-  <p>
-    This is just a test application you can add message below
-  </p>
-  <ul>
-    <li *ngFor="let item of items | async">
-      <input type="text" #updatetext [value]="item.text" />
-      <button (click)="updateItem(item.$key, updatetext.value)">Update</button>
-      <button (click)="deleteItem(item.$key)">Delete</button>
-    </li>
-  </ul>
-  <input type="text" #newitem />
-  <button (click)="addItem(newitem.value)">Add</button>
-  <button (click)="deleteEverything()">Delete All</button>
+<span class="app-action">
+  <button (click)="showDialog()" md-fab><md-icon>add</md-icon></button>
+</span>
+
+<div (click)="clickOnOverlay($event)" [ngClass]="{'open': showOverlay}" id="app-overlay" class="app-overlay"></div>
+<div [ngClass]="{'open': showAddChatRoomDialog}" class="app-dialog mdl-card mdl-shadow--2dp">
+  <div class="app-dialog-header primary-color mdl-shadow--2dp">
+    <h3>New chat room</h3>
+    <button (click)="closeDialog()" class="app-dialog-close-button no-background mdl-button">
+      <md-icon>clear</md-icon>
+    </button>
+  </div>
+  <div class="app-dialog-body">
+    <input type="text" #newname placeholder="Name"/>
+    <div class="mdl-textfield mdl-js-textfield">
+      <textarea #newdescription placeholder="Description..."></textarea>
+    </div>
+    <button (click)="addChatRoom(newname.value, newdescription.value)" md-raised-button color="primary">Add</button>
+  </div>
 </div>

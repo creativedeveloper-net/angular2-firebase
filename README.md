@@ -1,5 +1,6 @@
 # Angular2 Firebase example app
 
+The project currently is in early stage
 [Live demo](https://angular2-test-9dceb.firebaseapp.com)
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.18.

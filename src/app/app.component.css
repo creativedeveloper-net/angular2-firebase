@@ -1,12 +1,84 @@
+.app-action {
+  bottom: 20px;
+  display: inline-block;
+  position: fixed;
+  right: 20px;
+}
+
+.app-avatar {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 32px;
+  margin: 8px 0;
+  vertical-align: middle;
+  width: 32px;
+}
+
+.app-content {
+  padding: 20px;
+}
+
 .app-toolbar-filler {
   flex: 1 1 auto;
 }
 
-.app-avatar {
+.app-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.app-overlay.open {
+  display: block;
+}
+
+.app-dialog {
+  background: #FFF;
+  display: none;
+  left: 50%;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 450px;
+}
+
+.app-dialog.open {
+  display: block;
+}
+
+.app-dialog-header {
+  position: relative;
+  text-align: center;
+}
+
+.app-dialog-header h3 {
+  margin: 0;
+  padding: 15px 56px;
+}
+
+.app-dialog-close-button {
+  bottom: 0;
   cursor: pointer;
-  border-radius: 50%;
-  height: 32px;
-  margin: 8px 0;
-  vertical-align: middle;;
-  width: 32px;
+  height: auto;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.app-dialog-body {
+  padding: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  margin-bottom: 10px;
 }
