@@ -1,5 +1,8 @@
 # Angular2 Firebase example app
 
+I've decided to switch to [angular2-mdl](https://github.com/mseemann/angular2-mdl) instead of [material2](https://github.com/mseemann/angular2-mdl), the project has been moved here:
+[https://github.com/creativedeveloper-net/angular2-mdl-firebase/](https://github.com/creativedeveloper-net/angular2-mdl-firebase/)
+
 The project currently is in early stage
 [Live demo](https://angular2-test-9dceb.firebaseapp.com)
 
